@@ -22,7 +22,7 @@ export async function fetchVedios(query , per_page=10)  {
 
     const res = await axios.get('https://api.pexels.com/v1/videos/search' , {
         params : { query, per_page },
-        headers: {Authorization : `Client-ID ${PEXELS_KEY}` }
+        headers: {Authorization : PEXELS_KEY} 
     });
     console.log("response is: ",res)
 

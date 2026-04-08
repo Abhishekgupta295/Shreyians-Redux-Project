@@ -1,16 +1,19 @@
 
 // import {  fetchGifs, fetchPhotos, fetchVedios } from './API/MediaApi'
+import { Route, Routes } from 'react-router-dom'
 import './App.css'
-import SearchBar from './components/SearchBar'
-import Tabs from './components/Tabs'
+
+import HomePage from './Pages/HomePage'
+import CollectionPage from './Pages/CollectionPages'
+import Navbar from './components/Navbar'
 
 function App() {
   
 
   return (
     <>
-      <div className='h-screen w-full text-white bg-gray-900'>
-          <h1>Redux Pro</h1>
+      <div  className="min-h-screen text-white w-full bg-gray-900">
+          
           {/* <button className='bg-blue-300 px-4 py-2 m-4 rounded-md' 
               onClick={async() => {
               const data = await fetchPhotos('cat')
@@ -40,8 +43,12 @@ function App() {
               }}
           >Get Videos
           </button> */}
-          <SearchBar />
-          <Tabs/>
+          <Navbar />
+          <Routes>
+            <Route path="/" element={<HomePage />} />
+            <Route path="/collection" element={<CollectionPage/>} />
+          </Routes>
+          
       </div>
     </>
   )
