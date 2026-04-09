@@ -6,6 +6,8 @@ import './App.css'
 import HomePage from './Pages/HomePage'
 import CollectionPage from './Pages/CollectionPages'
 import Navbar from './components/Navbar'
+import { ToastContainer } from 'react-toastify';
+
 
 function App() {
   
@@ -48,7 +50,8 @@ function App() {
             <Route path="/" element={<HomePage />} />
             <Route path="/collection" element={<CollectionPage/>} />
           </Routes>
-          
+          <ToastContainer />
+
       </div>
     </>
   )

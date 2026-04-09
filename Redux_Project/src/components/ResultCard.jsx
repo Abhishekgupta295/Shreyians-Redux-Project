@@ -1,15 +1,14 @@
-import js from '@eslint/js';
+import { useDispatch } from 'react-redux'
+import { addToCollection, addedToast } from '../Redux/Features/CollectionSlice';
+
 import React from 'react'
 
 const ResultCard = ({item}) => {
  
-  const addToCollection = (item) => {
-     console.log("Adding to collection:", item);
-     const olddata = JSON.parse(localStorage.getItem('collection')) || [];
-     console.log("Old Collection Data:", olddata);
-     const newdata = [...olddata, item];
-     console.log("New Collection Data:", newdata);
-     localStorage.setItem('collection', JSON.stringify(newdata));
+  const dispatch = useDispatch();
+  const HandleaddToCollection = (item) => {
+     dispatch(addToCollection(item));
+     dispatch(addedToast());
   }
 
 
@@ -27,7 +26,7 @@ const ResultCard = ({item}) => {
              
                 <button
                     onClick={() => {
-                        addToCollection(item);
+                        HandleaddToCollection(item);
                     }}
                     className='bg-indigo-600 active:scale-95 text-white rounded px-3 py-1 cursor-pointer font-medium'
                 >
